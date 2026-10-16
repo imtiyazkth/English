@@ -1,0 +1,9 @@
+name = "english-saathi"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-01-01"
+
+# Non-secret configuration. The secret GEMINI_API_KEY must be added as an encrypted
+# secret in the Cloudflare Pages dashboard (Settings > Variables and Secrets) and is
+# deliberately NOT written here.
+[vars]
+GEMINI_MODEL = "gemini-3.1-flash-lite"

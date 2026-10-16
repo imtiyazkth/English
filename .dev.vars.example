@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars for LOCAL testing with `wrangler pages dev dist`.
+# .dev.vars is git-ignored. NEVER put a real key in this example file.
+GEMINI_API_KEY=your-key-goes-here-in-.dev.vars-only
+# Non-secret. Verified on the official pricing page (Oct 2026) to have a free tier; re-check before deploying:
+# https://ai.google.dev/gemini-api/docs/pricing and https://ai.google.dev/gemini-api/docs/models
+GEMINI_MODEL=gemini-3.1-flash-lite

@@ -1,0 +1,30 @@
+# dependencies and build output
+node_modules/
+dist/
+coverage/
+.wrangler/
+.vite/
+*.tsbuildinfo
+
+# secrets and local environment (never commit)
+.dev.vars
+.env
+.env.*
+!.env.example
+!.dev.vars.example
+*.pem
+*.key
+credentials*.json
+
+# learner recordings and archives
+*.wav
+*.webm
+*.m4a
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+npm-debug.log*

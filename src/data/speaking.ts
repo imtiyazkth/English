@@ -1,0 +1,165 @@
+import type { SpeakingTask } from '../types';
+import { speak } from './builders';
+
+export const SPEAKING: SpeakingTask[] = [
+  {
+    id: 's-repeat-basic',
+    title: 'Listen and repeat: first phrases',
+    titleHi: 'सुनें और दोहराएँ: पहले वाक्य',
+    stage: 'pre-a1',
+    kind: 'repeat',
+    exercises: [
+      speak('s-rb-1', 'Listen, then say it.', 'Good morning.', 'सुनकर वैसा ही दोहराएँ।', { targetText: 'Good morning' }),
+      speak('s-rb-2', 'Listen, then say it.', 'How are you?', 'सुनकर वैसा ही दोहराएँ।', { targetText: 'How are you' }),
+      speak('s-rb-3', 'Listen, then say it.', 'Thank you very much.', 'सुनकर वैसा ही दोहराएँ।', { targetText: 'Thank you very much' }),
+    ],
+  },
+  {
+    id: 's-intro',
+    title: 'Introduce yourself',
+    titleHi: 'अपना परिचय दें',
+    stage: 'pre-a1',
+    kind: 'intro',
+    exercises: [
+      speak(
+        's-intro-1',
+        'Say your name and where you are from.',
+        'Hello, my name is Ravi. I am from India.',
+        'मॉडल: Hello, my name is ... I am from ...',
+        { keywords: ['my name', 'i am from'] },
+      ),
+      speak(
+        's-intro-2',
+        'Say one thing about your family.',
+        'I have a sister. Her name is Meena.',
+        'मॉडल: I have a ... Her/His name is ...',
+        { keywords: ['i have'] },
+      ),
+    ],
+  },
+  {
+    id: 's-read-aloud',
+    title: 'Read aloud: polite requests',
+    titleHi: 'ज़ोर से पढ़ें: विनम्र अनुरोध',
+    stage: 'a1',
+    kind: 'read-aloud',
+    exercises: [
+      speak('s-ra-1', 'Read this aloud.', 'I would like a cup of tea, please.', 'साफ़ और धीमे बोलें।', { targetText: 'I would like a cup of tea please' }),
+      speak('s-ra-2', 'Read this aloud.', 'Could you speak a little slower, please?', 'साफ़ और धीमे बोलें।', { targetText: 'Could you speak a little slower please' }),
+      speak('s-ra-3', 'Read this aloud.', 'Excuse me, where is the bus stop?', 'साफ़ और धीमे बोलें।', { targetText: 'Excuse me where is the bus stop' }),
+    ],
+  },
+  {
+    id: 's-rp-food',
+    title: 'Role-play: ordering food',
+    titleHi: 'रोल-प्ले: खाना ऑर्डर करना',
+    stage: 'a1',
+    kind: 'role-play',
+    scenario: 'ordering-food',
+    exercises: [
+      speak(
+        's-food-1',
+        'The waiter greets you. Order a meal.',
+        'I would like a vegetable biryani, please.',
+        'ऑर्डर के लिए: I would like ..., please.',
+        { keywords: ['i would like', 'please'], partnerLine: 'Welcome! What would you like to eat?' },
+      ),
+      speak(
+        's-food-2',
+        'The waiter asks about a drink. Answer him.',
+        'A glass of water, please.',
+        'पेय के लिए: A glass of ..., please.',
+        { keywords: ['please'], partnerLine: 'Would you like something to drink?' },
+      ),
+    ],
+  },
+  {
+    id: 's-rp-directions',
+    title: 'Role-play: asking directions',
+    titleHi: 'रोल-प्ले: रास्ता पूछना',
+    stage: 'a1',
+    kind: 'role-play',
+    scenario: 'asking-directions',
+    exercises: [
+      speak(
+        's-dir-1',
+        'Stop a person and ask where the bus stop is.',
+        'Excuse me, where is the bus stop?',
+        'शुरुआत Excuse me से करें।',
+        { keywords: ['excuse me', 'where is'], partnerLine: 'Yes? Can I help you?' },
+      ),
+      speak(
+        's-dir-2',
+        'Thank the person.',
+        'Thank you very much for your help.',
+        'धन्यवाद कहना न भूलें।',
+        { keywords: ['thank you'], partnerLine: 'Go straight and turn left. It is next to the bank.' },
+      ),
+    ],
+  },
+  {
+    id: 's-rp-phone',
+    title: 'Role-play: a phone call',
+    titleHi: 'रोल-प्ले: फ़ोन पर बात',
+    stage: 'a2',
+    kind: 'role-play',
+    scenario: 'phone-call',
+    exercises: [
+      speak(
+        's-phone-1',
+        'You call a clinic. Ask for an appointment.',
+        'Hello, I would like to make an appointment, please.',
+        'फ़ोन पर: Hello, I would like to ...',
+        { keywords: ['appointment', 'would like'], partnerLine: 'City Clinic, how can I help you?' },
+      ),
+      speak(
+        's-phone-2',
+        'Give your name and a day that suits you.',
+        'My name is Ravi. Is Friday possible?',
+        'अपना नाम और दिन बताएँ।',
+        { keywords: ['my name'], partnerLine: 'Of course. May I have your name and a day that suits you?' },
+      ),
+    ],
+  },
+  {
+    id: 's-rp-interview',
+    title: 'Role-play: job interview',
+    titleHi: 'रोल-प्ले: नौकरी का इंटरव्यू',
+    stage: 'b1',
+    kind: 'role-play',
+    scenario: 'job-interview',
+    exercises: [
+      speak(
+        's-int-1',
+        'Answer: "Tell me about yourself."',
+        'I am a graduate with two years of experience in customer service. I enjoy solving problems and working in a team.',
+        'पेशेवर परिचय: मैं कौन हूँ + अनुभव + मेरी ताक़त।',
+        { keywords: ['experience'], partnerLine: 'Thank you for coming. Tell me about yourself.' },
+      ),
+      speak(
+        's-int-2',
+        'Answer: "Why do you want this job?"',
+        'I want this job because I would like to learn new skills and grow with the company.',
+        'कारण बताएँ: I want this job because ...',
+        { keywords: ['because'], partnerLine: 'Why do you want this job?' },
+      ),
+    ],
+  },
+  {
+    id: 's-rp-customer',
+    title: 'Role-play: helping a customer',
+    titleHi: 'रोल-प्ले: ग्राहक की मदद',
+    stage: 'b1',
+    kind: 'role-play',
+    scenario: 'customer-service',
+    exercises: [
+      speak(
+        's-cus-1',
+        'A customer is upset about a late order. Apologise and offer help.',
+        'I am sorry for the delay. Let me check your order and help you fix this.',
+        'पहले माफ़ी, फिर मदद की पेशकश।',
+        { keywords: ['sorry', 'help'], partnerLine: 'My order is two days late! This is not acceptable.' },
+      ),
+    ],
+  },
+];
