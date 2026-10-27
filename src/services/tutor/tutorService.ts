@@ -128,6 +128,9 @@ export class HttpTutorService implements TutorService {
   }
 }
 
+// Same-origin by default (Cloudflare/Firebase). Set VITE_API_BASE at build time to call a backend on another origin (e.g. Supabase).
+const API_BASE: string = ((import.meta.env?.VITE_API_BASE as string | undefined) ?? '').replace(/\/+$/, '');
+export const tutorService: TutorService = new HttpTutorService(API_BASE);
 
 export const TUTOR_SCENARIOS: { id: string; title: string; titleHi: string }[] = [
   { id: 'meeting-someone', title: 'Meeting someone new', titleHi: 'किसी नए व्यक्ति से मिलना' },
@@ -139,7 +142,3 @@ export const TUTOR_SCENARIOS: { id: string; title: string; titleHi: string }[] =
   { id: 'doctor-reception', title: "Doctor's reception", titleHi: 'डॉक्टर का रिसेप्शन' },
   { id: 'phone-call', title: 'Making a phone call', titleHi: 'फ़ोन कॉल करना' },
 ];
-
-// Same-origin by default. Set VITE_API_BASE at build time to call a backend on another origin (e.g. Supabase).
-const API_BASE: string = ((import.meta.env?.VITE_API_BASE as string | undefined) ?? '').replace(/\/+$/, '');
-export const tutorService: TutorService = new HttpTutorService(API_BASE);

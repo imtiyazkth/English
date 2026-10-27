@@ -107,7 +107,7 @@ export function Onboarding() {
             <ul className="plain-list">
               <li>No sign-up. No email. Start right now.</li>
               <li>Short daily sessions of 5 to 30 minutes.</li>
-              <li>Your progress is saved on this device. {BACKEND_LABELS[backend].en}</li>
+              <li>{BACKEND_LABELS[backend].en}</li>
             </ul>
             <label className="field">
               <span className="field-label">What should we call you? (optional)</span>
@@ -116,7 +116,7 @@ export function Onboarding() {
             <Button variant="primary" size="lg" block onClick={() => setStep(1)}>
               Get started
             </Button>
-            <Button variant="ghost" block onClick={() => { setLevel('pre-a1'); setStep(5); }}>
+            <Button variant="ghost" block onClick={() => finish('pre-a1')}>
               Start from zero — skip the questions
             </Button>
           </Card>
@@ -209,9 +209,11 @@ export function Onboarding() {
             <Button variant="primary" size="lg" block onClick={() => finish(level)}>
               Start at {STAGE_BY_ID[level].label}
             </Button>
-            <Button variant="secondary" block onClick={() => finish('pre-a1')}>
-              Start from zero (Zero English / Pre-A1)
-            </Button>
+            {level !== 'pre-a1' && (
+              <Button variant="secondary" block onClick={() => finish('pre-a1')}>
+                I prefer to start from zero
+              </Button>
+            )}
             <Button variant="ghost" block onClick={() => { setTier(0); setCorrectMap({}); setSuggested(null); setStep(6); }}>
               Take a short placement check (about 3 minutes)
             </Button>
@@ -249,9 +251,11 @@ export function Onboarding() {
                 <Button variant="primary" size="lg" block onClick={() => finish(suggested)}>
                   Start at {STAGE_BY_ID[suggested].label}
                 </Button>
-                <Button variant="secondary" block onClick={() => finish('pre-a1')}>
-                  I prefer to start from zero
-                </Button>
+                {suggested !== 'pre-a1' && (
+                  <Button variant="secondary" block onClick={() => finish('pre-a1')}>
+                    I prefer to start from zero
+                  </Button>
+                )}
               </div>
             )}
           </Card>

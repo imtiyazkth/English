@@ -120,7 +120,7 @@ export function Tutor() {
     status?.reason === 'offline'
       ? { en: 'You are offline. The tutor needs an internet connection. Lessons and quizzes still work.', hi: 'आप ऑफ़लाइन हैं। ट्यूटर को इंटरनेट चाहिए। पाठ और क्विज़ चलते रहेंगे।' }
       : status?.reason === 'not-deployed'
-        ? { en: 'The tutor backend is not reachable. It only works on the deployed site (Cloudflare Pages), not on a plain static host. Everything else still works.', hi: 'ट्यूटर बैकएंड नहीं मिल रहा। यह सिर्फ़ डिप्लॉय की गई साइट (Cloudflare Pages) पर चलता है।' }
+        ? { en: 'The AI tutor could not be reached right now. Check your internet connection and try again. Lessons, quizzes and flashcards still work.', hi: 'AI ट्यूटर अभी नहीं मिल पा रहा। इंटरनेट जाँचकर फिर कोशिश करें। पाठ, क्विज़ और फ़्लैशकार्ड चलते रहेंगे।' }
         : TUTOR_MESSAGES['not-configured'];
 
   return (

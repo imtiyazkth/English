@@ -1233,3 +1233,117 @@ input[type='range'] {
     border: 1px solid var(--border);
   }
 }
+
+/* ------------------------------------------------------------------ polish v2
+   Warmer hero, clearer nav, softer feedback. Contrast checked for light and dark. */
+:root {
+  --hero-a: #2b2f8f;
+  --hero-b: #6a3fc7;
+  --hero-ink: #ffffff;
+  --soft-bg: #fff4dc;
+  --soft-border: #d99a1e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hero-a: #2c2f78;
+    --hero-b: #4b2f8a;
+    --soft-bg: #3a3014;
+    --soft-border: #d9a441;
+  }
+}
+.page-title {
+  letter-spacing: -0.01em;
+}
+.card {
+  border-radius: 18px;
+  padding: 1.1rem;
+}
+.btn {
+  transition: background 0.15s, transform 0.08s, box-shadow 0.15s;
+}
+.btn-primary {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12), 0 6px 14px rgba(43, 47, 143, 0.22);
+}
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    box-shadow: none;
+  }
+}
+@media (hover: hover) {
+  .btn-secondary:hover,
+  .btn-ghost:hover {
+    background: var(--primary-soft);
+  }
+}
+
+/* home hero */
+.home-hero {
+  background: linear-gradient(135deg, var(--hero-a), var(--hero-b));
+  color: var(--hero-ink);
+  border-radius: 20px;
+  padding: 1.1rem 1.1rem 1.2rem;
+  gap: 0.35rem;
+}
+.home-hero .eyebrow,
+.home-hero .hi,
+.home-hero .muted {
+  color: rgba(255, 255, 255, 0.88);
+}
+.home-hero .page-title {
+  color: var(--hero-ink);
+  font-size: 1.7rem;
+}
+.home-hero .btn-primary {
+  background: #ffffff;
+  color: #2b2f8f;
+  margin-top: 0.6rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* bottom navigation: clear active pill, not only a thin bar */
+.nav-item {
+  font-size: 0.74rem;
+  gap: 3px;
+}
+.nav-item.active {
+  box-shadow: none;
+}
+.nav-item svg {
+  box-sizing: content-box;
+  padding: 3px 14px;
+  border-radius: 999px;
+  transition: background 0.15s;
+}
+.nav-item.active svg {
+  background: var(--primary-soft);
+}
+
+/* daily path */
+.daily-step {
+  border: 1px solid var(--border);
+}
+.daily-path .done .daily-step {
+  border-color: var(--good);
+}
+.step-state {
+  font-size: 1.1rem;
+}
+
+/* softer feedback for approximate checks (writing / speaking / near misses) */
+.feedback.soft {
+  background: var(--soft-bg);
+  border-color: var(--soft-border);
+}
+
+/* answer options */
+.option {
+  transition: border-color 0.12s, background 0.12s, transform 0.08s;
+}
+.option:active:not([disabled]) {
+  transform: scale(0.99);
+}
+@media (hover: hover) {
+  .option:hover:not([disabled]) {
+    border-color: var(--primary);
+  }
+}

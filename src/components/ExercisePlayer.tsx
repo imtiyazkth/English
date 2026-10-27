@@ -119,11 +119,13 @@ export function ExercisePlayer({ ex, onDone, doneLabel = 'Continue' }: { ex: Exe
 // ---------------------------------------------------------------- feedback
 function Feedback({ ex, grade, response, retryAvailable }: { ex: Exercise; grade: Grade; response: string | number; retryAvailable: boolean }) {
   const report = ex.type === 'write' ? checkWriting(String(response), ex) : null;
+  // Writing and speaking checks are approximate, so a miss is shown as encouragement, not as a failure.
+  const soft = !grade.correct && (ex.type === 'write' || ex.type === 'speak' || !!grade.near);
   return (
-    <div className={`feedback ${grade.correct ? 'ok' : 'bad'}`} role="status" aria-live="polite">
+    <div className={`feedback ${grade.correct ? 'ok' : soft ? 'soft' : 'bad'}`} role="status" aria-live="polite">
       <p className="feedback-title">
-        {grade.correct ? <CheckCircle2 size={20} aria-hidden /> : <XCircle size={20} aria-hidden />}
-        {grade.correct ? ' Correct! सही!' : grade.near ? ' Very close — check your spelling. बहुत क़रीब!' : retryAvailable ? ' Not yet. अभी नहीं।' : ' Not quite. कोई बात नहीं।'}
+        {grade.correct ? <CheckCircle2 size={20} aria-hidden /> : soft ? <Lightbulb size={20} aria-hidden /> : <XCircle size={20} aria-hidden />}
+        {grade.correct ? ' Correct! सही!' : ex.type === 'write' ? ' Almost there — see the tips below. लगभग हो गया!' : grade.near ? ' Very close — check your spelling. बहुत क़रीब!' : retryAvailable ? ' Not yet. अभी नहीं।' : ' Not quite. कोई बात नहीं।'}
       </p>
       {ex.type !== 'speak' && ex.type !== 'write' && (!grade.correct || ex.type === 'translate') && (
         <p>
